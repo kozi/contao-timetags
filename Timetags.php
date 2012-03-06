@@ -28,8 +28,8 @@
 /**
  * Class Timetags
  *
- * @copyright  2011 
- * @author     Martin Kozianka
+ * @copyright  Martin Kozianka 2011-2012 
+ * @author     Martin Kozianka <http://kozianka-online.de>
  * @package    timetags
  */
 class Timetags extends Frontend {
