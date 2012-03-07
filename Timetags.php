@@ -45,9 +45,10 @@ class Timetags extends Frontend {
 		$tagValues = trimsplit('::', $strTag);
 		$this->tagname = $tagValues[0];
 
-		if ($this->tagname == 'timesince' || $this->tagname == 'countdown') {
+		if ($this->tagname == 'timesince' || $this->tagname == 'countdown' ||
+				$this->tagname == 'countdown_days') {
 
-			if (sizeof($tagValues) !== 4 && sizeof($tagValues) !== 3) {
+			if (sizeof($tagValues) < 3) {
 				return "{{".$strTag."}} - Missing parameter(s).";
 			}
 
@@ -65,6 +66,14 @@ class Timetags extends Frontend {
 				$this->message = "";
 			}
 
+			// Optionale Nachricht
+			if (sizeof($tagValues) === 5) {
+				$this->message_over = $tagValues[4];
+			}
+			else {
+				$this->message_over = "";
+			}
+				
 			$timeStr = trim($tagValues[1]);
 			
 			if (strpos($timeStr, "tstamp=") !== false) {
@@ -78,7 +87,10 @@ class Timetags extends Frontend {
 					return "{{".$strTag."}} - Error parsing date";
 				}	
 			}
-
+			
+			if ($this->tagname == 'countdown_days') {
+				return $this->countdown_days();
+			}
 			if ($this->tagname == 'countdown') {
 				return $this->countdown();
 			}
@@ -90,12 +102,39 @@ class Timetags extends Frontend {
 		return false;
 	}
 	
-	private function countdown() {
+	private function countdown_days() {
+
 		$diff = $this->date->timestamp - time();
+
+		if ($diff <= (Timetags::$oneDay *-1)) {
+			return $this->message_over;
+		}
+		else if ($diff <= 0) {
+			return $this->message;
+		}
+		
+		// Tage
+		if ($diff > Timetags::$oneDay) {
+			$days = floor($diff / Timetags::$oneDay) + 1;
+		}
+		else {
+			$days = 1;
+		}
+
+		$lang   = &$GLOBALS['TL_LANG']['FMD']['timetags_countdown'];
+		$langPl = &$GLOBALS['TL_LANG']['FMD']['timetags_countdown_plural'];
+
+		$countdownStr = $days." ".(($days == 1) ? $lang[3] : $langPl[3]);
+		return sprintf($this->fmtString, $countdownStr);
+	}
+	
+	private function countdown() {
+			$diff = $this->date->timestamp - time();
 
 		if ($diff <= 0) {
 			return $this->message;
 		}
+		
 		$cd = new stdClass();
 		$cd->days  = 0;
 		$cd->hours = 0;
@@ -107,7 +146,7 @@ class Timetags extends Frontend {
 			$cd->days = floor($diff / Timetags::$oneDay);
 			$diff = $diff % Timetags::$oneDay;
 		}
-
+		
 		// Stunden
 		if ($diff > Timetags::$oneHour) {
 			$cd->hours = floor($diff / Timetags::$oneHour);
@@ -155,8 +194,10 @@ class Timetags extends Frontend {
 
 
 	private function timesince() {
+		
 		if (time() <= $this->date->timestamp) {			return $this->message;
 		}
+		
 		return $this->relativeTime($tstamp);
 	}
 	
