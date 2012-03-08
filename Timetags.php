@@ -82,7 +82,9 @@ class Timetags extends Frontend {
 				// Datum parsen
 				try {
 					$dt = new DateTime($timeStr);
-					$this->date = new Date($dt->getTimestamp());
+					
+					$this->date = new Date($dt->format('U'));
+					
 				} catch (Exception $e) {
 					return "{{".$strTag."}} - Error parsing date";
 				}	
