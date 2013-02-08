@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Contao Open Source CMS
  * Copyright (C) 2005-2013 Leo Feyer
@@ -15,9 +14,6 @@
  */
 
 
-/**
- * Register the classes
- */
 ClassLoader::addClasses(array(
 	'Timetags'    => 'system/modules/timetags/Timetags.php'
 ));
