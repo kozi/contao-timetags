@@ -3,12 +3,12 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2012 Leo Feyer
+ * Copyright (C) 2005-2013 Leo Feyer
  *
  *
  * PHP version 5
- * @copyright  Martin Kozianka 2011-2012 <http://kozianka-online.de/>
- * @author     Martin Kozianka <http://kozianka-online.de/>
+ * @copyright  Martin Kozianka 2011-2013 <http://kozianka.de/>
+ * @author     Martin Kozianka <http://kozianka.de/>
  * @package    timetags
  * @license    LGPL 
  * @filesource
@@ -18,8 +18,8 @@
 /**
  * Class Timetags
  *
- * @copyright  Martin Kozianka 2011-2012 
- * @author     Martin Kozianka <http://kozianka-online.de>
+ * @copyright  Martin Kozianka 2011-2013 
+ * @author     Martin Kozianka <http://kozianka.de>
  * @package    timetags
  */
 class Timetags extends Frontend {
@@ -49,7 +49,7 @@ class Timetags extends Frontend {
 			}
 			
 			// Optionale Nachricht
-			if (sizeof($tagValues) === 4) {
+			if (sizeof($tagValues) >= 4) {
 				$this->message = $tagValues[3];
 			}
 			else {
@@ -57,7 +57,7 @@ class Timetags extends Frontend {
 			}
 
 			// Optionale Nachricht
-			if (sizeof($tagValues) === 5) {
+			if (sizeof($tagValues) >= 5) {
 				$this->message_over = $tagValues[4];
 			}
 			else {
