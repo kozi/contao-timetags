@@ -31,6 +31,9 @@ class Timetags extends Frontend {
 	private $message       = "";
 
     public function replaceTags($strTag) {
+
+        $this->loadLanguageFile('timetags');
+
 		$tagValues     = trimsplit('::', $strTag);
         $this->date    = new Date();
 		$this->tagname = $tagValues[0];
