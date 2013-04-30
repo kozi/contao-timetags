@@ -13,4 +13,4 @@
  * @filesource
  */
  
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('Timetags', 'replaceTags');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][]       = array('Timetags', 'replaceTags');

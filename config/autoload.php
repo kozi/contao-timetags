@@ -13,7 +13,6 @@
  * @filesource
  */
 
-
 ClassLoader::addClasses(array(
-	'Timetags'    => 'system/modules/timetags/Timetags.php'
+	'Timetags'    => 'system/modules/timetags/classes/Timetags.php'
 ));

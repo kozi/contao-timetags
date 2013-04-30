@@ -14,11 +14,11 @@
  */
 
 
-$GLOBALS['TL_LANG']['FMD']['timetags_timesince_format'] = "[%s ago]:";
-$GLOBALS['TL_LANG']['FMD']['timetags_timesince'] = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
-$GLOBALS['TL_LANG']['FMD']['timetags_timesince_plural'] = array("seconds", "minutes", "hours", "days", "weeks", "months", "years", "decades");
+$GLOBALS['TL_LANG']['FMD']['timetags_timesince_format']     = "[%s ago]:";
+$GLOBALS['TL_LANG']['FMD']['timetags_timesince']            = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
+$GLOBALS['TL_LANG']['FMD']['timetags_timesince_plural']     = array("seconds", "minutes", "hours", "days", "weeks", "months", "years", "decades");
 
-$GLOBALS['TL_LANG']['FMD']['timetags_countdown_plural'] = array("seconds", "minutes", "hours", "days");
-$GLOBALS['TL_LANG']['FMD']['timetags_countdown'] = array("second", "minute", "hour", "day");
+$GLOBALS['TL_LANG']['FMD']['timetags_countdown_plural']     = array("seconds", "minutes", "hours", "days");
+$GLOBALS['TL_LANG']['FMD']['timetags_countdown']            = array("second", "minute", "hour", "day");
 
 
