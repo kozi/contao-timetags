@@ -1,5 +1,5 @@
 {
-    "name": "martin-kozianka/timetags",
+    "name": "martin-kozianka/contao-timetags",
     "description": "Inserttags for contao {{timesince::OPTIONS}}, {{countdown::OPTIONS}},{{countdown_days::OPTIONS}}",
     "keywords": [
         "timetags",
@@ -19,9 +19,9 @@
     ],  
     "support": {
         "email": "martin@kozianka.de",
-        "issues": "https://github.com/kozi/timetags/issues",
+        "issues": "https://github.com/kozi/contao-timetags/issues",
         "irc": "irc://irc.freenode.org/contao.dev",
-        "source": "https://github.com/kozi/timetags"
+        "source": "https://github.com/kozi/contao-timetags"
     },
     "require": {
         "php": ">=5.4",
