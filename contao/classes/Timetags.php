@@ -41,15 +41,15 @@ class Timetags extends Frontend {
 
 		if ($this->tagname == 'timesince' || $this->tagname == 'countdown' ||
 				$this->tagname == 'countdown_days') {
-
+					
 			if (sizeof($tagValues) < 3) {
-				return "{{".$strTag."}} - Missing parameter(s).";
+				return "[[".$strTag."]] - Missing parameter(s).";
 			}
 
 			// Format String
 			$this->fmtString = $tagValues[2];
 			if (strpos($this->fmtString, "%s") === false) {
-				return "{{".$strTag."}} - Missing %s in format string";
+				return "[[".$strTag."]] - Missing %s in format string";
 			}
 			
 			// Optionale Nachricht
@@ -80,7 +80,7 @@ class Timetags extends Frontend {
                     $this->date = new Date($dt->format('U'));
 					
 				} catch (Exception $e) {
-					return "{{".$strTag."}} - Error parsing date";
+					return "[[".$strTag."]] - Error parsing date";
 				}	
 			}
 			
